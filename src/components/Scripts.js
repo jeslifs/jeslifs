@@ -112,7 +112,26 @@ export default function Scripts() {
         texture_night.colorSpace = THREE.SRGBColorSpace;
         texture_night.flipY = false;
 
-        const material = new THREE.MeshStandardMaterial({map:texture_night})
+        const material = new THREE.MeshStandardMaterial({map:texture_day})
+        let isDayTexture = true; 
+
+        //toggle between day and night textures
+        function toggleTextures() 
+        {
+            if(isDayTexture)
+            {
+                material.map = texture_day;
+            } 
+            else 
+            {
+                material.map = texture_night;
+            }
+
+            isDayTexture = !isDayTexture;
+            material.needsUpdate = true; 
+        }
+        setInterval(toggleTextures, 30000);
+
 
         // model
         const assetLoader = new GLTFLoader(loadingManager);
@@ -163,6 +182,7 @@ export default function Scripts() {
             orbit.update();
             track.target.set(target.x, target.y, target.z);
             track.update();
+            // toggleTextures();
             renderer.render(scene, camera);
 
         }
