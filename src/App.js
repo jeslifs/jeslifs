@@ -1,6 +1,6 @@
 import Loader from './components/Loader';
 import Scripts from './components/Scripts';
-import './App.css';
+import './App.css'; 
 
 function App() {
   return (
