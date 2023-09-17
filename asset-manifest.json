@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/jeslifs/static/css/main.d6b0645a.css",
+    "main.js": "/jeslifs/static/js/main.1052a474.js",
+    "static/js/787.1120b09d.chunk.js": "/jeslifs/static/js/787.1120b09d.chunk.js",
+    "static/media/jeslif.glb": "/jeslifs/static/media/jeslif.56930aaa304733a8da8e.glb",
+    "static/media/night_bake.png": "/jeslifs/static/media/night_bake.569392fea3602c344df6.png",
+    "static/media/day_bake.png": "/jeslifs/static/media/day_bake.bdfaed04294c3c4476f7.png",
+    "index.html": "/jeslifs/index.html",
+    "main.d6b0645a.css.map": "/jeslifs/static/css/main.d6b0645a.css.map",
+    "main.1052a474.js.map": "/jeslifs/static/js/main.1052a474.js.map",
+    "787.1120b09d.chunk.js.map": "/jeslifs/static/js/787.1120b09d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6b0645a.css",
+    "static/js/main.1052a474.js"
+  ]
+}
