@@ -7,9 +7,12 @@ import { gsap } from 'gsap'
 import * as dat from 'dat.gui'
 
 
-/**
- * Debug
- */
+const parameter = {
+
+}
+
+//  Debug
+
 const gui = new dat.GUI({
     // closed: true,
     width: 400
@@ -78,31 +81,12 @@ const overlayMaterial = new THREE.ShaderMaterial({
 })
 const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
 scene.add(overlay)
-
-
-// light
-// const ambientLight = new THREE.AmbientLight()
-// scene.add(ambientLight)
-
-// direction
-// const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-// directionalLight.position.set(0.25, 3, -2.25)
-// directionalLight.castShadow = true
-// directionalLight.shadow.camera.far = 15
-// directionalLight.shadow.mapSize.set(1024, 1024)
-// scene.add(directionalLight)
-
-// const directionalLightHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
-// scene.add(directionalLightHelper)
  
 // load texture
 const bakedTexture = textureLoader.load('/textures/baked.jpg')
 bakedTexture.flipY = false
 bakedTexture.encoding = THREE.sRGBEncoding
 
-/**
- * Model
- */
 
 // baked material
 const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
@@ -116,8 +100,8 @@ gltfLoader.load(
     (gltf)=>
     {
         
-        gltf.scene.scale.set(10, 10, 10)
-        gltf.scene.position.set(0, -4, 0)
+        // gltf.scene.scale.set(5, 5, 5)
+        gltf.scene.position.set(0, 0, 0)
         gltf.scene.rotation.y = Math.PI * 0.5
         
 
@@ -136,6 +120,26 @@ gltfLoader.load(
         gui.add(gltf.scene.rotation, 'y').min(-Math.PI).max(Math.PI).step(0.001).name('Rotate')
     }
 )
+
+// fire flies
+
+const firefliesGeometry = new THREE.BufferGeometry()
+const firefliesCount = 30
+const positionArray = new Float32Array(firefliesCount * 3)
+
+for (let i=0; i<firefliesCount; i++)
+{
+    positionArray[i * 3 + 0] = (Math.random() - 0.5) * 4
+    positionArray[i * 3 + 1] = Math.random() * 1.5
+    positionArray[i * 3 + 2] = (Math.random() - 0.5) * 4
+}
+firefliesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3))
+
+const firefliesMaterial = new THREE.PointsMaterial({ size: 0.1, sizeAttenuation: true})
+
+// points
+const fireflies = new THREE.Points(firefliesGeometry, firefliesMaterial)
+scene.add(fireflies)
 
 
 /**
@@ -164,7 +168,7 @@ window.addEventListener('resize', () =>
 /**
  * Camera
  */
-// Base camera
+
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(-27, 15, -35) 
 scene.add(camera)
@@ -188,8 +192,12 @@ renderer.outputEncoding = THREE.sRGBEncoding
 // renderer.toneMappingExposure = 3
 // renderer.shadowMap.enabled = true
 // renderer.shadowMap.type = THREE.PCFSoftShadowMap
-
-
+parameter.clearColor = '#201919'
+renderer.setClearColor(parameter.clearColor)
+gui.addColor(parameter, 'clearColor').onChange(()=>
+{
+    renderer.setClearColor(parameter.clearColor)
+})
 
 /**
  * Animate
