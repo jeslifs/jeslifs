@@ -96,7 +96,7 @@ scene.add(overlay)
 // scene.add(directionalLightHelper)
  
 // load texture
-const bakedTexture = textureLoader.load('baked.jpg')
+const bakedTexture = textureLoader.load('/textures/baked.jpg')
 bakedTexture.flipY = false
 bakedTexture.encoding = THREE.sRGBEncoding
 
@@ -108,11 +108,11 @@ bakedTexture.encoding = THREE.sRGBEncoding
 const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
 
 // pole light material
-const poleLightMaterial = new THREE.MeshStandardMaterial({ color: '#ffffe5' })
-
+const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xF8CE0F })
+const portalLightMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF })
 
 gltfLoader.load(
-    'portal.glb',
+    'model/portal.glb',
     (gltf)=>
     {
         
@@ -123,6 +123,15 @@ gltfLoader.load(
         {
             child.material = bakedMaterial
         })
+
+        const poleLightMeshA = gltf.scene.children.find(child=> child.name === 'poleLightA')
+        const poleLightMeshB = gltf.scene.children.find(child=> child.name === 'poleLightB')
+        const portalLightMesh = gltf.scene.children.find(child=> child.name === 'portalLight')
+        
+        portalLightMesh.material = portalLightMaterial
+        poleLightMeshA.material = poleLightMaterial
+        poleLightMeshB.material = poleLightMaterial
+
         scene.add(gltf.scene)
 
         gui.add(gltf.scene.rotation, 'y').min(-Math.PI).max(Math.PI).step(0.001).name('Rotate')
