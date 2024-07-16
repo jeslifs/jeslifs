@@ -6,7 +6,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { gsap } from 'gsap'
-import * as dat from 'dat.gui'
+// import * as dat from 'dat.gui'
 
 const parameter = {
 
@@ -621,6 +621,13 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+// controls.autoRotate = true
+controls.enablePan = false
+// controls.minAzimuthAngle = Math.PI / 0.52
+// controls.maxAzimuthAngle = Math.PI / 1.77; //end
+// controls.minPolarAngle = Math.PI / 10;
+controls.maxPolarAngle = Math.PI / 1.83;
+controls.maxDistance = 35;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
