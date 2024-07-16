@@ -178,7 +178,7 @@ gltfLoader.load(
 
 // Cover
 let cover
-gltfLoader.load('/model/Blade_Covers.glb',
+gltfLoader.load('model/Blade_Covers.glb',
     (gltf) => {
         cover = gltf.scene.children.find(child => child.name === 'Blade_Cover') 
         cover.material = bakedMaterial1
@@ -194,7 +194,7 @@ gltfLoader.load('/model/Blade_Covers.glb',
 
 // Blade
 let blade, num = 1
-gltfLoader.load('/model/Blades.glb',
+gltfLoader.load('model/Blades.glb',
     (gltf) => {
         blade = gltf.scene.children.find(child => child.name === 'Blade') 
         blade.material = bakedMaterial1
@@ -224,7 +224,7 @@ const duration = 3
 let animationFinished = false
 
 // Functions
-const monitorImage = textureLoader.load('/textures/About_me.jpg')
+const monitorImage = textureLoader.load('textures/About_me.jpg')
 monitorImage.flipY = false
 monitorImage.encoding = THREE.sRGBEncoding
 const displayMon = new THREE.MeshBasicMaterial({ map: monitorImage });
@@ -264,11 +264,11 @@ const monitorAnimation = (xPos, yPos, zPos, xCon, yCon, zCon) => {
     }
 }
 
-const portfolioImage = textureLoader.load('/textures/portfolio_website.jpg')
+const portfolioImage = textureLoader.load('textures/portfolio_website.jpg')
 portfolioImage.flipY = false
 portfolioImage.encoding = THREE.sRGBEncoding
 
-const goanCartImage = textureLoader.load('/textures/GoanCart.jpg')
+const goanCartImage = textureLoader.load('textures/GoanCart.jpg')
 goanCartImage.flipY = false
 goanCartImage.encoding = THREE.sRGBEncoding
 
@@ -361,8 +361,8 @@ const displayMobile = () => {
 // Load Sound
 const playGuitarSounds = []
 
-const strum = new Audio('/sounds/Guitar_Strum.mp3')
-const fretboard = new Audio('/sounds/Slide_Fretboard.mp3')
+const strum = new Audio('sounds/Guitar_Strum.mp3')
+const fretboard = new Audio('sounds/Slide_Fretboard.mp3')
 
 playGuitarSounds.push(strum, fretboard)
 
@@ -378,11 +378,11 @@ const guitar = () => {
 // Laod Sounds
 const playBreakBadSounds = []
 
-const jesse = new Audio('/sounds/Jesse_Jesse.mp3')
-const sayMyName = new Audio('/sounds/Say_My_Name.mp3')
-const yeahScience = new Audio('/sounds/Yeah_Science.mp3')
-const damnRight = new Audio('/sounds/Youre_God_Damn_Right.mp3')
-const whatUpBiatch = new Audio('/sounds/What_Up_Biatch.mp3')
+const jesse = new Audio('sounds/Jesse_Jesse.mp3')
+const sayMyName = new Audio('sounds/Say_My_Name.mp3')
+const yeahScience = new Audio('sounds/Yeah_Science.mp3')
+const damnRight = new Audio('sounds/Youre_God_Damn_Right.mp3')
+const whatUpBiatch = new Audio('sounds/What_Up_Biatch.mp3')
 
 playBreakBadSounds.push(jesse, sayMyName, damnRight, whatUpBiatch, yeahScience)
 // console.log(playSounds,'yoyo', playSounds.length);
