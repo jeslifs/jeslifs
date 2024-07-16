@@ -50,7 +50,7 @@ const loadingManager = new THREE.LoadingManager(
 const gltfLoader = new GLTFLoader(loadingManager)
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/')
+dracoLoader.setDecoderPath('draco/')
 gltfLoader.setDRACOLoader(dracoLoader)
 
 // Scene
@@ -83,9 +83,9 @@ const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
 scene.add(overlay)
 
 // load texture
-const bakedTexture1 = textureLoader.load('/textures/night_bake.jpg')
-const bakedTexture2 = textureLoader.load('/textures/Van_bake.jpg')
-const social = textureLoader.load('/textures/social.jpg')
+const bakedTexture1 = textureLoader.load('textures/night_bake.jpg')
+const bakedTexture2 = textureLoader.load('textures/Van_bake.jpg')
+const social = textureLoader.load('textures/social.jpg')
 
 bakedTexture1.flipY = false
 bakedTexture1.encoding = THREE.sRGBEncoding
