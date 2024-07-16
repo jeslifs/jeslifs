@@ -264,7 +264,7 @@ const monitorAnimation = (xPos, yPos, zPos, xCon, yCon, zCon) => {
     }
 }
 
-const portfolioImage = textureLoader.load('textures/portfolio_website.jpg')
+const portfolioImage = textureLoader.load('textures/Portfolio.jpg')
 portfolioImage.flipY = false
 portfolioImage.encoding = THREE.sRGBEncoding
 
