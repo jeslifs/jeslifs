@@ -6,7 +6,6 @@
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
-
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
@@ -29,5 +28,8 @@
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
